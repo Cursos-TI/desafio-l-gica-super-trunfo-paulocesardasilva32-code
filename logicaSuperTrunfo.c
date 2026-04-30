@@ -1,43 +1,62 @@
 #include <stdio.h>
+#include <string.h>
 
-// Desafio Super Trunfo - Países
-// Tema 2 - Comparação das Cartas
-// Este código inicial serve como base para o desenvolvimento do sistema de comparação de cartas de cidades. 
-// Siga os comentários para implementar cada parte do desafio.
+/**
+ * Super Trunfo: Rio de Janeiro vs New York
+ * Nível Novato - Comparação de Atributos
+ */
 
 int main() {
-    // Definição das variáveis para armazenar as propriedades das cidades
-    // Você pode utilizar o código do primeiro desafio
+    // --- Dados da Carta 1: Rio de Janeiro ---
+    char estado1 = 'R'; 
+    char codigo1[] = "R01";
+    char cidade1[] = "Rio de Janeiro";
+    unsigned long int populacao1 = 6211423; // Censo aproximado
+    float area1 = 1200.25;                  // km²
+    float pib1 = 329.43;                    // Bilhões de Reais
+    int pontos_turisticos1 = 50;
+    float densidade1 = (float)populacao1 / area1;
 
-    
-    // Cadastro das Cartas:
-    // Implemente a lógica para solicitar ao usuário que insira os dados das cidades
-    // utilizando a função scanf para capturar as entradas.
-    // utilize o código do primeiro desafio
+    // --- Dados da Carta 2: New York ---
+    char estado2 = 'N';
+    char codigo2[] = "N01";
+    char cidade2[] = "New York";
+    unsigned long int populacao2 = 8467513; // Estimativa
+    float area2 = 783.84;                   // km² (Apenas terra)
+    float pib2 = 1000.00;                   // Valor ilustrativo em Bilhões
+    int pontos_turisticos2 = 100;
+    float densidade2 = (float)populacao2 / area2;
 
-    // Exemplo:
-    // printf("Digite o código da cidade: ");
-    // scanf("%s", codigo);
-    // 
-    // (Repita para cada propriedade)
+    // --- Exibição das Cartas ---
+    printf("=== CARTA 1: %s ===\n", cidade1);
+    printf("População: %lu\nArea: %.2f km²\nDensidade: %.2f hab/km²\n\n", populacao1, area1, densidade1);
 
-    // Comparação de Cartas:
-    // Desenvolva a lógica de comparação entre duas cartas.
-    // Utilize estruturas de decisão como if, if-else para comparar atributos como população, área, PIB, etc.
+    printf("=== CARTA 2: %s ===\n", cidade2);
+    printf("População: %lu\nArea: %.2f km²\nDensidade: %.2f hab/km²\n\n", populacao2, area2, densidade2);
 
-    // Exemplo:
-    // if (populacaoA > populacaoB) {
-    //     printf("Cidade 1 tem maior população.\n");
-    // } else {
-    //     printf("Cidade 2 tem maior população.\n");
-    // }
+    // --- Comparação de População (Maior vence) ---
+    printf("--- Resultado: População ---\n");
+    if (populacao1 > populacao2) {
+        printf("Vencedor: %s\n", cidade1);
+    } else {
+        printf("Vencedor: %s\n", cidade2);
+    }
 
-    // Exibição dos Resultados:
-    // Após realizar as comparações, exiba os resultados para o usuário.
-    // Certifique-se de que o sistema mostre claramente qual carta venceu e com base em qual atributo.
+    // --- Comparação de Densidade (Menor vence) ---
+    printf("\n--- Resultado: Densidade Populacional ---\n");
+    if (densidade1 < densidade2) {
+        printf("Vencedor: %s (Menos lotada!)\n", cidade1);
+    } else {
+        printf("Vencedor: %s (Menos lotada!)\n", cidade2);
+    }
 
-    // Exemplo:
-    // printf("A cidade vencedora é: %s\n", cidadeVencedora);
+    // --- Comparação de Área (Maior vence) ---
+    printf("\n--- Resultado: Área Total ---\n");
+    if (area1 > area2) {
+        printf("Vencedor: %s (Cidade maior geograficamente)\n", cidade1);
+    } else {
+        printf("Vencedor: %s (Cidade maior geograficamente)\n", cidade2);
+    }
 
     return 0;
 }
